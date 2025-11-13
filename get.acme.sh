@@ -35,7 +35,6 @@ then
 fi
 
 _url="https://raw.githubusercontent.com/$_fork_path/acme.sh"
-echo $_email
 _get=""
 
 if _exists curl && [ "${ACME_USE_WGET:-0}" = "0" ]; then
