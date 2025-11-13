@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/bash
 
 #https://github.com/acmesh-official/get.acme.sh
 
