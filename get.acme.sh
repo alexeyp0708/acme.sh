@@ -4,12 +4,6 @@
 
 _exists() {
   cmd="$1"
-  fork_path="$2"
-  if [ -z "$fork_patch" ]
-  then
-    fork_path=acmesh-official/acme.sh/$BRANCH
-  fi
-  
   if [ -z "$cmd" ] ; then
     echo "Usage: _exists cmd"
     return 1
@@ -29,14 +23,18 @@ fi
 
 #format "email=my@example.com"
 _email="$1"
-
 if [ "$_email" ]; then
   shift
   _email="--$(echo "$_email" | tr '=' ' ')"
 fi
 
+_fork_path="$2"
+if [ -z "$_fork_path" ]
+then
+  _fork_path=acmesh-official/acme.sh/$BRANCH
+fi
 
-_url="https://raw.githubusercontent.com/$fork_path/acme.sh"
+_url="https://raw.githubusercontent.com/$_fork_path/acme.sh"
 
 _get=""
 
