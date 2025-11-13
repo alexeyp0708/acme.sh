@@ -33,6 +33,9 @@ if [ -z "$_fork_path" ]
 then
   _fork_path=acmesh-official/acme.sh/$BRANCH
 fi
+
+
+echo $@
 echo $_email
 echo $_fork_path
 _url="https://raw.githubusercontent.com/$_fork_path/acme.sh"
@@ -47,8 +50,6 @@ else
   echo "Please install either of them and try again."
   exit 1
 fi
-
-echo $@
 if ! $_get "$_url" | sh -s -- --install-online $_email "$@"; then
   echo "Install error"
   echo "中国大陆用户请参考:"
