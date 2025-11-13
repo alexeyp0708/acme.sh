@@ -35,7 +35,7 @@ then
 fi
 
 
-echo $@
+echo "=$@"
 echo $_email
 echo $_fork_path
 _url="https://raw.githubusercontent.com/$_fork_path/acme.sh"
