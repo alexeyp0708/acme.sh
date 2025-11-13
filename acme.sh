@@ -5482,6 +5482,7 @@ renew() {
   . "$DOMAIN_CONF"
   _debug Le_API "$Le_API"
  if [  -z "$STAGE"  ]
+ then
     case "$Le_API" in
     "$CA_LETSENCRYPT_V2_TEST")
       _info "Switching back to $CA_LETSENCRYPT_V2"
