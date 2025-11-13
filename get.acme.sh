@@ -33,7 +33,8 @@ if [ -z "$_fork_path" ]
 then
   _fork_path=acmesh-official/acme.sh/$BRANCH
 fi
-
+echo $_email
+echo $_fork_path
 _url="https://raw.githubusercontent.com/$_fork_path/acme.sh"
 _get=""
 
