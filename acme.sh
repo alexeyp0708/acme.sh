@@ -6227,7 +6227,7 @@ installcronjob() {
   _initpath
   _CRONTAB="crontab"
   if [ -f "$LE_WORKING_DIR/$PROJECT_ENTRY" ]; then
-    lesh="\"$LE_WORKING_DIR\"/$PROJECT_ENTRY"
+    lesh="\"$LE_WORKING_DIR/$PROJECT_ENTRY\""
   else
     _debug "_SCRIPT_" "$_SCRIPT_"
     _script="$(_readlink "$_SCRIPT_")"
@@ -6268,13 +6268,13 @@ installcronjob() {
     return 1
   fi
   _info "Installing cron job"
-  if ! $_CRONTAB -l | grep "$PROJECT_ENTRY --cron"; then
+  if ! $_CRONTAB -l 2>/dev/null | grep "$PROJECT_ENTRY --cron"; then
     if _exists uname && uname -a | grep SunOS >/dev/null; then
       _CRONTAB_STDIN="$_CRONTAB --"
     else
       _CRONTAB_STDIN="$_CRONTAB -"
     fi
-    $_CRONTAB -l | {
+    $_CRONTAB -l 2>/dev/null | {
       cat
       echo "$random_minute $random_hour * * * $lesh --cron --home \"$LE_WORKING_DIR\" $_c_entry> /dev/null"
     } | $_CRONTAB_STDIN
